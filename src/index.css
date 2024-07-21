@@ -8,8 +8,13 @@
 }
 
 :root {
+  /* fonts */
+  --alata: "Alata", sans-serif;
+  --mont: "Montserrat", sans-serif;
+  /* colors */
+  --inputPlColor: rgb(129, 129, 129);
+  --lightColor: #ffffffff;
+  --footerBgColor: #093e36;
   --buttonBgColor: #00fffb;
   --primaryBgButtonColor: #0c00ff;
-  --footerBgColor: #093e36;
-  --lightColor: #ffffffff;
 }
