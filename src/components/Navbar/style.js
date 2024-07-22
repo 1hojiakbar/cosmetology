@@ -5,20 +5,21 @@ const flex = css`
   display: flex;
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  width: 100%;
+  `;
 
 export const NavbarWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 50px;
-  padding-right: 50px;
   width: 100%;
+  padding: 0 5% 0 5%;
   height: 95px;
   color: var(--lightColor);
   font-family: var(--mont);
   background: rgba(10, 9, 9, 0.5);
-`;
+  `;
 
 export const Section = styled.div`
   display: flex;
@@ -67,4 +68,6 @@ export const SocialLink = styled.a`
   }
 `;
 
-export const Body = styled.div``;
+export const Body = styled.div`
+  font-family: var(--mont);
+`;

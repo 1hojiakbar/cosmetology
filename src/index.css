@@ -16,7 +16,8 @@
   --lightColor: #ffffffff;
   --footerBgColor: #093e36;
   --buttonBgColor: #00fffb;
-  --primaryBgButtonColor: #0c00ff;
+  --blackColor: #000;
+  --secondaryBgButtonColor: #0c00ff;
   --primaryBgButtonColor: rgb(3, 255, 255);
 }
 

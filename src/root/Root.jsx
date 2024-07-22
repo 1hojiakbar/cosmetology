@@ -1,7 +1,7 @@
-import Home from "../components/Home/Home";
+import Home from "../pages/Home/Home";
 import Form from "../components/Form/Form";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const Root = () => {
   return (
