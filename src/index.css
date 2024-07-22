@@ -17,4 +17,12 @@
   --footerBgColor: #093e36;
   --buttonBgColor: #00fffb;
   --primaryBgButtonColor: #0c00ff;
+  --primaryBgButtonColor: rgb(3, 255, 255);
+}
+
+body {
+  background-image: url("/src/assets/images/background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
