@@ -19,8 +19,8 @@ export const BrandTitleBox = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 50%;
-  margin-top: 80px;
-  /* border: 1px solid red; */
+  margin-top: 140px;
+  row-gap: 0.5rem;
 `;
 
 BrandTitleBox.Title = styled.div`
@@ -66,10 +66,10 @@ export const BrandFaceBox = styled.div`
   justify-content: center;
   align-items: center;
   width: max-content;
-  margin-top: 50px;
+  margin-top: 74px;
   padding: 0;
   height: max-content;
-  transform: scale(1.07);
+  transform: scale(1.3);
   user-select: none;
 `;
 

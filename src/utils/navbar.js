@@ -5,17 +5,17 @@ const navbarData = [
   {
     id: 1,
     title: "Bosh sahifa",
-    path: "/boshsahifa",
+    path: "home",
   },
   {
     id: 2,
     title: "Xizmatlarimiz",
-    path: "/xizmatlarimiz",
+    path: "services",
   },
   {
     id: 3,
     title: "Biz xaqimizda",
-    path: "xaqimizda",
+    path: "about",
   },
 ];
 

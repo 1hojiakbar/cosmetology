@@ -22,7 +22,7 @@ const Navbar = () => {
         <Section gap="20px">
           {navbarData.map(({ id, title, path }) => {
             return (
-              <NavbarItem key={id} to={path}>
+              <NavbarItem key={id} to={path} smooth={true} duration={600}>
                 {title}
               </NavbarItem>
             );
