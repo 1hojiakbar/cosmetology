@@ -69,7 +69,7 @@ export const BrandFaceBox = styled.div`
   margin-top: 74px;
   padding: 0;
   height: max-content;
-  transform: scale(1.3);
+  transform: scale(1.14);
   user-select: none;
 `;
 

@@ -1,10 +1,17 @@
 import React from "react";
-import { Container } from "./style";
+import { Card, CardWrapper, Container, Content } from "./style";
 
 const Services = () => {
   return (
     <Container>
-      <h1>Services</h1>
+      <Content>
+        <Container.Title>Xizmatlarimiz</Container.Title>
+        <CardWrapper>
+          <Card>1</Card>
+          <Card>2</Card>
+          <Card>3</Card>
+        </CardWrapper>
+      </Content>
     </Container>
   );
 };

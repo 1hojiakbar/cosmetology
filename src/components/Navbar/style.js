@@ -7,19 +7,22 @@ const flex = css`
 
 export const Container = styled.div`
   width: 100%;
-  `;
+`;
 
 export const NavbarWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 999;
   width: 100%;
   padding: 0 5% 0 5%;
   height: 95px;
   color: var(--lightColor);
   font-family: var(--mont);
-  background: rgba(10, 9, 9, 0.5);
-  `;
+  background: rgba(10, 9, 9, 0.9);
+`;
 
 export const Section = styled.div`
   display: flex;
