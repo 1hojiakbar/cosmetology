@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, CardWrapper, Container, Content } from "./style";
 
 const Services = () => {
@@ -7,9 +6,18 @@ const Services = () => {
       <Content>
         <Container.Title>Xizmatlarimiz</Container.Title>
         <CardWrapper>
-          <Card>1</Card>
-          <Card>2</Card>
-          <Card>3</Card>
+          <Card>
+            <Card.Image>1</Card.Image>
+            <Card.Title>Terini parvarishlash</Card.Title>
+          </Card>
+          <Card>
+            <Card.Image>2</Card.Image>
+            <Card.Title>Estetik muolajalar</Card.Title>
+          </Card>
+          <Card>
+            <Card.Image>3</Card.Image>
+            <Card.Title>Lazer terapiyasi</Card.Title>
+          </Card>
         </CardWrapper>
       </Content>
     </Container>

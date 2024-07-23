@@ -37,6 +37,26 @@ export const Card = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+`;
+
+Card.Image = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
   border-radius: 14px;
   background: rgb(196, 196, 196);
+`;
+
+Card.Title = styled.strong`
+  color: var(--lightColor);
+  font-family: var(--alata);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0px;
+  text-align: center;
 `;
