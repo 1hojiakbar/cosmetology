@@ -1,10 +1,25 @@
 import React from "react";
-import { Container } from "./style";
+import { BlogDataWrapper, BlogItem, Container, Content } from "./style";
+import blogItemData from "../../utils/blog";
 
 const Blog = () => {
   return (
     <Container>
-      <h1>Blog</h1>
+      <Container.Title>Blog</Container.Title>
+      <Content>
+        <BlogDataWrapper>
+          {blogItemData.map(({ id, title, text }) => {
+            return (
+              <BlogItem key={id}>
+                <BlogItem.Title>
+                  {title}
+                  <BlogItem.Text>{text}</BlogItem.Text>
+                </BlogItem.Title>
+              </BlogItem>
+            );
+          })}
+        </BlogDataWrapper>
+      </Content>
     </Container>
   );
 };

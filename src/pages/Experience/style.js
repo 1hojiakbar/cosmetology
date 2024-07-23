@@ -37,7 +37,11 @@ export const Item = styled.ul`
   height: 90px;
   border: 0.5px solid rgb(255, 255, 255);
   border-radius: 10px;
+  transition: all 200ms;
   background: rgba(2, 7, 17, 0.24);
+  &:hover {
+    border: 0.5px solid transparent;
+  }
 `;
 
 Item.Text = styled.li`
