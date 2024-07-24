@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Form = () => {
   const [inputValues, setInputValues] = useState({
-    fullName: "",
+    name: "",
     phoneNumber: "",
   });
 
-  // Unikal ID generator funksiyasi
   function* idGenerator() {
     let id = 1;
     while (true) {
@@ -24,7 +23,7 @@ const Form = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Formani standart yuborish harakatini to'xtatish
+    e.preventDefault();
 
     try {
       const response = await fetch(
