@@ -1,24 +1,27 @@
+import idGenerator from "./Id";
 import { useState } from "react";
 import Button from "../Button/Button";
-import { TextField } from "@mui/material";
-import { Container, FormWrapper, InputWrapper } from "./style";
+import { InputAdornment, TextField } from "@mui/material";
+import { BackToLink, Container, FormWrapper, InputWrapper } from "./style";
+import { NavLink } from "react-router-dom";
 
 const Form = () => {
+  const [disable, setDisable] = useState(false);
   const [inputValues, setInputValues] = useState({
     name: "",
     phoneNumber: "",
   });
 
-  function* idGenerator() {
-    let id = 1;
-    while (true) {
-      yield id++;
-    }
-  }
   const idGen = idGenerator();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const makeDisabled = () => {
+    if (inputValues.name.length > 0 && inputValues.phoneNumber.length > 0) {
+      setDisable(true);
+    }
+  };
+
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
     setInputValues((prevValues) => ({
       ...prevValues,
       [name]: value,
@@ -38,7 +41,7 @@ const Form = () => {
           },
           body: JSON.stringify({
             id: idGen.next().value,
-            userName: inputValues.fullName,
+            name: inputValues.name,
             phoneNumber: inputValues.phoneNumber,
           }),
         }
@@ -49,10 +52,12 @@ const Form = () => {
       }
 
       const data = await response.json();
-      console.log("Serverdan qaytgan ma'lumot:", data);
+      if (data) {
+        makeDisabled();
+      }
 
       setInputValues({
-        fullName: "",
+        name: "",
         phoneNumber: "",
       });
     } catch (error) {
@@ -71,22 +76,36 @@ const Form = () => {
           <TextField
             label="Ismingiz"
             name="name"
+            autoComplete="off"
             placeholder="Ismingizni kiriting"
-            value={inputValues.fullName}
+            value={inputValues.name}
             onChange={handleChange}
           />
 
           <TextField
             label="Telefon raqamingiz"
-            placeholder="Telefon raqamingizni kiriting"
+            placeholder="99 999 99 99"
+            autoComplete="off"
             name="phoneNumber"
-            value={inputValues.fullName}
+            value={inputValues.phoneNumber}
             onChange={handleChange}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">+998</InputAdornment>
+              ),
+            }}
           />
         </InputWrapper>
-        <Button onClick={handleSubmit} h="60px" type="secondary" size="medium">
+        <Button
+          onClick={handleSubmit}
+          disable={disable}
+          h="60px"
+          type="secondary"
+          size="medium"
+        >
           Yuborish
         </Button>
+        <BackToLink to="/">Asosiy sahifaga qaytish</BackToLink>
       </FormWrapper>
     </Container>
   );

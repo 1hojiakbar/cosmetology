@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -14,7 +15,7 @@ export const FormWrapper = styled.form`
   flex-direction: column;
   width: 50%;
   border-radius: 10px;
-  padding: 50px 3% 50px 3%;
+  padding: 50px 3% 20px 3%;
   background: rgb(255, 255, 255);
   @media (max-width: 992px) {
     width: 70%;
@@ -49,4 +50,18 @@ export const InputWrapper = styled.div`
   flex-direction: column;
   gap: 40px;
   margin-bottom: 48px;
+`;
+
+export const BackToLink = styled(NavLink)`
+  color: var(--blackColor);
+  margin-top: 14px;
+  font-family: var(--mont);
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    text-decoration: 1px underline rebeccapurple;
+  }
 `;
