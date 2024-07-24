@@ -9,7 +9,7 @@ export const Container = styled.div`
   background: rgb(21, 8, 48);
   height: fit-content;
   margin-top: 100px;
-  overflow: scroll;
+  /* overflow: scroll; */
 `;
 
 export const FooterContent = styled.div`
@@ -20,6 +20,12 @@ export const FooterContent = styled.div`
   height: 250px;
   padding: 32px 0;
   width: 90%;
+  @media (max-width: 992px) {
+    justify-content: flex-start;
+    row-gap: 2rem;
+    height: fit-content;
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Logo = styled.div`
@@ -30,6 +36,14 @@ export const Logo = styled.div`
   line-height: 24px;
   letter-spacing: 0px;
   text-align: center;
+  @media (max-width: 992px) {
+    text-align: left;
+  }
+  @media (max-width: 990px) {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
 `;
 
 export const FooterNav = styled.div`
@@ -37,6 +51,12 @@ export const FooterNav = styled.div`
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   width: 100%;
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 547px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const FooterNavColumn = styled.div`
@@ -69,6 +89,10 @@ export const SocialLinkWrapper = styled.div`
   display: flex;
   align-self: flex-end;
   gap: 27px;
+  @media (max-width: 992px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 export const SocialLink = styled.a`

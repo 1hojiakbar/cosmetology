@@ -28,17 +28,30 @@ const Home = () => {
             Go'zallik qurbonlikni emas, bilim olishni talab qiladi. Dunyoda
             xunuk ayolni bo'lmaydi, o'zini parvarish qilmagan ayollar bo'ladi.
           </BrandTitleBox.Slogan>
-          <Button
-            w="350px"
-            h="70px"
-            type="primary"
-            onClick={() => navigate("/registration")}
-          >
-            Joyni band qilish
-          </Button>
+          {!query && (
+            <Button
+              w="350px"
+              h="70px"
+              type="primary"
+              onClick={() => navigate("/registration")}
+            >
+              Joyni band qilish
+            </Button>
+          )}
         </BrandTitleBox>
         <BrandFaceBox>
           <BrandFaceBox.Image src={image} alt="Image not found" />
+          {query && (
+            <Button
+              w={query ? "100%" : "350px"}
+              h={query ? "50px" : "70px"}
+              type="primary"
+              size={query && "medium"}
+              onClick={() => navigate("/registration")}
+            >
+              Joyni band qilish
+            </Button>
+          )}
         </BrandFaceBox>
       </ContentWrapper>
     </Container>

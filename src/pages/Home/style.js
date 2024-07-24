@@ -87,6 +87,7 @@ export const BrandFaceBox = styled.div`
   width: max-content;
   margin-top: 74px;
   padding: 0;
+  row-gap: 2rem;
   height: max-content;
   transform: scale(1.14);
   user-select: none;
