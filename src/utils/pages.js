@@ -6,6 +6,7 @@ import Clients from "../pages/Clients/Clients";
 import Blog from "../pages/Blog/Blog";
 import Resaults from "../pages/Resaults/Resaults";
 import News from "../pages/News/News";
+import Footer from "../pages/Footer/Footer";
 
 const pagesData = [
   {
@@ -47,6 +48,11 @@ const pagesData = [
     id: 8,
     element: News,
     name: "news",
+  },
+  {
+    id: 9,
+    element: Footer,
+    name: "footer",
   },
 ];
 

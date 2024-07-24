@@ -1,14 +1,16 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import image from "../../assets/images/person.png";
+import Button from "../../components/Button/Button";
 import {
   BrandFaceBox,
   BrandTitleBox,
   Container,
   ContentWrapper,
 } from "./style";
-import Button from "../../components/Button/Button";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <ContentWrapper>
@@ -24,7 +26,12 @@ const Home = () => {
             Go'zallik qurbonlikni emas, bilim olishni talab qiladi. Dunyoda
             xunuk ayolni bo'lmaydi, o'zini parvarish qilmagan ayollar bo'ladi.
           </BrandTitleBox.Slogan>
-          <Button w="350px" h="70px" type="primary">
+          <Button
+            w="350px"
+            h="70px"
+            type="primary"
+            onClick={() => navigate("/registration")}
+          >
             Joyni band qilish
           </Button>
         </BrandTitleBox>

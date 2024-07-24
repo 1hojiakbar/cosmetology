@@ -6,7 +6,6 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 100px;
-  /* margin-bottom: 100px; */
 `;
 
 Container.Title = styled.div`

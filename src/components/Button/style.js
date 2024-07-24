@@ -16,6 +16,25 @@ const getType = ({ type }) => {
   }
 };
 
+const getSize = ({ size }) => {
+  switch (size) {
+    case "medium":
+      return {
+        fontSize: "24px",
+        fontWeight: "400",
+        lineHeight: "33px",
+        letterSpacing: "0",
+      };
+    case "large":
+      return {
+        fontSize: "26px",
+        fontWeight: "400",
+        lineHeight: "36px",
+        letterSpacing: "0",
+      };
+  }
+};
+
 const moveHover = ({ type }) => {
   if (type == "primary") {
     return {
@@ -42,6 +61,7 @@ export const ButtonWrapper = styled.button`
   width: ${({ w }) => (w ? w : "100%")};
   height: ${({ h }) => (h ? h : "85px")};
   ${getType};
+  ${getSize}
   &:hover {
     ${moveHover}
   }
