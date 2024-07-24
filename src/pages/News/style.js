@@ -18,6 +18,15 @@ Container.Title = styled.div`
   letter-spacing: 0px;
   text-align: center;
   margin-bottom: 24px;
+  @media (max-width: 992px) {
+    font-size: 32px;
+  }
+  @media (max-width: 768px) {
+    font-size: 26px;
+  }
+  @media (max-width: 567px) {
+    font-size: 24px;
+  }
 `;
 
 export const Content = styled.div`
@@ -25,6 +34,10 @@ export const Content = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 90%;
+  @media (max-width: 992px) {
+    flex-direction: column;
+    gap: 5rem;
+  }
 `;
 
 export const LeftContent = styled.div`
@@ -33,6 +46,9 @@ export const LeftContent = styled.div`
   align-items: flex-start;
   width: 60%;
   height: fit-content;
+  @media (max-width: 992px) {
+    width: 100%;
+  }
 `;
 
 export const NewsContent = styled.ul`
@@ -79,6 +95,10 @@ export const RightContent = styled.div`
   align-items: center;
   width: 35%;
   height: fit-content;
+  @media (max-width: 992px) {
+    width: 100%;
+    gap: 2rem;
+  }
 `;
 
 export const TimeWrapper = styled.div`

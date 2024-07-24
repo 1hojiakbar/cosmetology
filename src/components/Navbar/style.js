@@ -7,6 +7,10 @@ const flex = css`
 
 export const Container = styled.div`
   width: 100%;
+  border: 1px solid blue;
+  @media (max-width: 992px) {
+    width: 100%;
+  }
 `;
 
 export const NavbarWrapper = styled.div`
@@ -20,6 +24,7 @@ export const NavbarWrapper = styled.div`
   padding: 0 5% 0 5%;
   height: 95px;
   color: var(--lightColor);
+  overflow: scroll;
   font-family: var(--mont);
   background: rgba(10, 9, 9, 0.9);
 `;
@@ -28,6 +33,7 @@ export const Section = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ gap }) => gap && gap};
+  border: 1px solid red;
 `;
 
 export const NavbarItem = styled(Link)`
@@ -73,4 +79,5 @@ export const SocialLink = styled.a`
 
 export const Body = styled.div`
   font-family: var(--mont);
+  width: 100%;
 `;

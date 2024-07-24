@@ -48,6 +48,15 @@ BlogItem.Title = styled.strong`
   font-size: 24px;
   font-weight: 600;
   text-align: left;
+  @media (max-width: 992px) {
+    font-size: 24px;
+  }
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+  @media (max-width: 567px) {
+    font-size: 18px;
+  }
 `;
 
 BlogItem.Text = styled.strong`
@@ -57,4 +66,13 @@ BlogItem.Text = styled.strong`
   font-weight: 400;
   line-height: 35px;
   text-align: left;
+  @media (max-width: 992px) {
+    font-size: 24px;
+  }
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+  @media (max-width: 567px) {
+    font-size: 18px;
+  }
 `;

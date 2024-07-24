@@ -19,6 +19,15 @@ Container.Title = styled.div`
   letter-spacing: 0px;
   text-align: center;
   margin-bottom: 24px;
+  @media (max-width: 992px) {
+    font-size: 32px;
+  }
+  @media (max-width: 768px) {
+    font-size: 26px;
+  }
+  @media (max-width: 567px) {
+    font-size: 24px;
+  }
 `;
 
 export const Content = styled.div`
@@ -39,6 +48,17 @@ export const CardWrapper = styled.div`
   background-position: center;
   background-size: cover;
   border-radius: 10px;
+  @media (max-width: 1080px) {
+    grid-template-columns: 260px 260px 260px;
+    gap: 16px;
+  }
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 250px 250px 250px;
+  }
 `;
 
 export const Card = styled.div`

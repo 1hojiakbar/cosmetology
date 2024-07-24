@@ -18,6 +18,15 @@ Container.Title = styled.div`
   letter-spacing: 0px;
   text-align: center;
   margin-bottom: 24px;
+  @media (max-width: 992px) {
+    font-size: 32px;
+  }
+  @media (max-width: 768px) {
+    font-size: 26px;
+  }
+  @media (max-width: 567px) {
+    font-size: 24px;
+  }
 `;
 
 export const Content = styled.div`
@@ -42,6 +51,13 @@ export const Item = styled.ul`
   &:hover {
     border: 0.5px solid transparent;
   }
+  @media (max-width: 992px) {
+    padding-right: 10px;
+  }
+  @media (max-width: 567px) {
+    height: fit-content;
+    padding: 12px 28px;
+  }
 `;
 
 Item.Text = styled.li`
@@ -50,6 +66,17 @@ Item.Text = styled.li`
   font-size: 22px;
   font-weight: 500;
   line-height: 32px;
-  letter-spacing: 0px;
   text-align: left;
+  @media (max-width: 992px) {
+    font-size: 24px;
+  }
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+  @media (max-width: 567px) {
+    font-size: 16px;
+  }
+  @media (max-width: 400px) {
+    font-size: 14px;
+  }
 `;

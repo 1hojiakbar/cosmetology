@@ -9,6 +9,7 @@ export const Container = styled.div`
   background: rgb(21, 8, 48);
   height: fit-content;
   margin-top: 100px;
+  overflow: scroll;
 `;
 
 export const FooterContent = styled.div`

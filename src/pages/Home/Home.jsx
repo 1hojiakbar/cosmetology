@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import image from "../../assets/images/person.png";
 import Button from "../../components/Button/Button";
@@ -10,6 +11,7 @@ import {
 
 const Home = () => {
   const navigate = useNavigate();
+  const query = useMediaQuery("(max-width:992px)");
 
   return (
     <Container>

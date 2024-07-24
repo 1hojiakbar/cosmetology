@@ -12,6 +12,11 @@ export const ContentWrapper = styled.div`
   justify-content: space-between;
   width: 90%;
   height: fit-content;
+  @media (max-width: 992px) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 export const BrandTitleBox = styled.div`
@@ -21,6 +26,10 @@ export const BrandTitleBox = styled.div`
   width: 50%;
   margin-top: 140px;
   row-gap: 0.5rem;
+  @media (max-width: 992px) {
+    margin-top: 40px;
+    width: 95%;
+  }
 `;
 
 BrandTitleBox.Title = styled.div`
@@ -34,6 +43,16 @@ BrandTitleBox.Title = styled.div`
   text-align: left;
   margin-bottom: 17px;
   text-shadow: 0 0 10px black;
+  @media (max-width: 992px) {
+    font-size: 32px;
+    width: 100%;
+  }
+  @media (max-width: 768px) {
+    font-size: 26px;
+  }
+  @media (max-width: 567px) {
+    font-size: 24px;
+  }
 `;
 
 BrandTitleBox.Text = styled.small`
@@ -71,6 +90,17 @@ export const BrandFaceBox = styled.div`
   height: max-content;
   transform: scale(1.14);
   user-select: none;
+  @media (max-width: 992px) {
+    margin-top: 50px;
+    width: 80%;
+    transform: scale(1.19);
+  }
+  @media (max-width: 768px) {
+    margin-top: 100;
+  }
+  @media (max-width: 567px) {
+    margin-top: 120px;
+  }
 `;
 
 BrandFaceBox.Image = styled.img`
@@ -78,6 +108,25 @@ BrandFaceBox.Image = styled.img`
   height: 380px;
   margin-right: 30px;
   user-select: none;
+  @media (max-width: 992px) {
+    width: 50%;
+    height: 500px;
+  }
+  @media (max-width: 930px) {
+    width: 45%;
+    margin-left: 20px;
+  }
+  @media (max-width: 750px) {
+    width: 55%;
+    margin-left: 30px;
+  }
+  @media (max-width: 599px) {
+    width: 70%;
+  }
+  @media (max-width: 500px) {
+    width: 80%;
+  }
+  @media (max-width: 450px) {
+    width: 90%;
+  }
 `;
-
-// export const Container = styled.div``;
