@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Button from "../Button/Button";
+import { TextField } from "@mui/material";
+import { Container, FormWrapper, InputWrapper } from "./style";
 
 const Form = () => {
   const [inputValues, setInputValues] = useState({
@@ -58,31 +61,34 @@ const Form = () => {
   };
 
   return (
-    <form>
-      <div>
-        <label htmlFor="fullName">Full Name</label>
-        <input
-          type="text"
-          id="full-name"
-          name="fullName"
-          value={inputValues.fullName}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="phoneNumber">Phone Number</label>
-        <input
-          type="text"
-          id="phone-number"
-          name="phoneNumber"
-          value={inputValues.phoneNumber}
-          onChange={handleChange}
-        />
-      </div>
-      <button type="submit" onClick={handleSubmit}>
-        Submit
-      </button>
-    </form>
+    <Container>
+      <FormWrapper>
+        <FormWrapper.Title>JOYINGIZNI BAND QILISH UCHUN</FormWrapper.Title>
+        <FormWrapper.SubTitle>
+          Ma'lumotlaringizni qoldiring
+        </FormWrapper.SubTitle>
+        <InputWrapper>
+          <TextField
+            label="Ismingiz"
+            name="name"
+            placeholder="Ismingizni kiriting"
+            value={inputValues.fullName}
+            onChange={handleChange}
+          />
+
+          <TextField
+            label="Telefon raqamingiz"
+            placeholder="Telefon raqamingizni kiriting"
+            name="phoneNumber"
+            value={inputValues.fullName}
+            onChange={handleChange}
+          />
+        </InputWrapper>
+        <Button onClick={handleSubmit} h="60px" type="secondary" size="medium">
+          Yuborish
+        </Button>
+      </FormWrapper>
+    </Container>
   );
 };
 
