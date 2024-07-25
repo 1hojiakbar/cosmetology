@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-scroll";
+import { Box } from "@mui/material";
 
 const flex = css`
   display: flex;
@@ -14,7 +15,7 @@ export const Container = styled.div`
 `;
 
 export const NavbarWrapper = styled.div`
-  display: flex;
+  ${flex}
   align-items: center;
   justify-content: space-between;
   position: sticky;
@@ -30,10 +31,9 @@ export const NavbarWrapper = styled.div`
 `;
 
 export const Section = styled.div`
-  display: flex;
+  ${flex}
   align-items: center;
   gap: ${({ gap }) => gap && gap};
-  border: 1px solid red;
 `;
 
 export const NavbarItem = styled(Link)`
@@ -54,6 +54,9 @@ export const NavbarItem = styled(Link)`
     border-radius: 12px;
     background: rgb(255, 255, 255);
   }
+  @media (max-width: 992px) {
+    width: 90%;
+  }
 `;
 
 export const Icon = styled.img`
@@ -63,7 +66,7 @@ export const Icon = styled.img`
 `;
 
 export const SocialLink = styled.a`
-  display: flex;
+  ${flex}
   align-items: center;
   text-decoration: none;
   color: var(--lightColor);
@@ -80,4 +83,20 @@ export const SocialLink = styled.a`
 export const Body = styled.div`
   font-family: var(--mont);
   width: 100%;
+`;
+
+export const DrawerItem = styled(Box)`
+  ${flex}
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-direction: column;
+`;
+
+export const Logo = styled.div`
+  color: var(--lightColor);
+  font-family: var(--mont);
+  font-size: 24px;
+  font-weight: 600;
 `;

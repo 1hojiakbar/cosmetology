@@ -2,9 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Root from "./root/Root";
 import "./index.css";
+import { ToggleProvider } from "./context/DrawerContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Root />
-  </React.StrictMode>
+  <ToggleProvider>
+    <React.StrictMode>
+      <Root />
+    </React.StrictMode>
+  </ToggleProvider>
 );

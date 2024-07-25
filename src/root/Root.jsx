@@ -2,6 +2,7 @@ import App from "./App";
 import Form from "../components/Form/Form";
 import Navbar from "../components/Navbar/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToggleProvider } from "../context/DrawerContext";
 
 const Root = () => {
   return (
