@@ -8,7 +8,6 @@ const flex = css`
 
 export const Container = styled.div`
   width: 100%;
-  border: 1px solid blue;
   @media (max-width: 992px) {
     width: 100%;
   }

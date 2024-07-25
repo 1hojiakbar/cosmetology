@@ -1,18 +1,44 @@
 import BaseUrl from "./Url";
-import idGenerator from "./Id";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, InputAdornment, TextField } from "@mui/material";
 import { BackToLink, Container, FormWrapper, InputWrapper } from "./style";
+import getNextId from "./Id";
 
 const Form = () => {
   const [inputs, setInputs] = useState({
     name: "",
     phoneNumber: "",
   });
-  const [errors, setErrors] = useState({});
   const [disable, setDisable] = useState(false);
+  const [nextId, setNextId] = useState(1);
 
-  const idGen = idGenerator();
+  useEffect(() => {
+    const fetchNextId = async () => {
+      const id = await getNextId();
+      setNextId(id);
+    };
+
+    fetchNextId();
+  }, []);
+
+  const checkValue = ({ target }) => {
+    const { name, value } = target.value;
+    if (name == "name") {
+      if (
+        value === "" ||
+        (/^\d{0,12}$/.test(value) && value.length >= 0 && value.length <= 12)
+      ) {
+        setValue(value);
+      }
+    }
+    // -----
+    if (name === "phoneNumber") {
+      // Matn faqat harflardan iborat bo'lishi kerak va uzunligi 3 dan 40 gacha bo'lishi kerak
+      if (/^[a-zA-Z\s]*$/.test() && value.length <= 40) {
+        setValue(value);
+      }
+    }
+  };
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -20,13 +46,15 @@ const Form = () => {
       ...prevValues,
       [name]: value,
     }));
+    checkValue(target);
+    setDisable(!inputs.name || !inputs.phoneNumber);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setDisable(true);
 
-    // Posting data to the google.sheets
     try {
       const response = await fetch(BaseUrl, {
         method: "POST",
@@ -34,13 +62,12 @@ const Form = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id: idGen.next().value,
+          id: nextId,
           name: inputs.name,
           phoneNumber: inputs.phoneNumber,
         }),
       });
 
-      // If the resonse isn't ok that's "new Error" gone to "catch" section
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -50,13 +77,10 @@ const Form = () => {
         setDisable(false);
       }
 
-      // clear input values
       setInputs({
         name: "",
         phoneNumber: "",
       });
-
-      // show error in console
     } catch (error) {
       console.error("There was an error sending data:", error);
     }
@@ -77,8 +101,12 @@ const Form = () => {
             placeholder="Ismingizni kiriting"
             value={inputs.name}
             onChange={handleChange}
-            error={errors.name}
-            helperText={errors.name}
+            inputProps={{
+              minLength: 3,
+              maxLength: 40,
+            }}
+            required
+            helperText="Please enter text between 3 and 40 characters"
           />
 
           <TextField
@@ -88,7 +116,14 @@ const Form = () => {
             name="phoneNumber"
             value={inputs.phoneNumber}
             onChange={handleChange}
-            helperText={errors.phoneNumber}
+            inputProps={{
+              inputMode: "numeric",
+              pattern: "[0-9]*",
+              maxLength: 12,
+              minLength: 7,
+            }}
+            required
+            helperText="Please enter a number between 7 and 12 digits"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">+998</InputAdornment>

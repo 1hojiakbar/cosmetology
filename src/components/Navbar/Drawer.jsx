@@ -20,18 +20,20 @@ const TemporaryDrawer = () => {
       role="presentation"
       bgcolor={"#131842"}
     >
-      <Box
-        display={"flex"}
-        justifyContent={"space-between"}
-        alignItems={"center"}
-        color={"white"}
-        width={"90%"}
-        height={"100px"}
-      >
-        <Logo>Logo</Logo>
-        <Button variant="text" onClick={() => toggleOpen(false)}>
-          <Icon src={closeIcon} />
-        </Button>
+      <Box display={"flex"} justifyContent={"center"} width={"100%"} borderBottom={"0.5px solid gray"}>
+        <Box
+          display={"flex"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          color={"white"}
+          width={"90%"}
+          height={"100px"}
+        >
+          <Logo>Logo</Logo>
+          <Button variant="text" onClick={() => toggleOpen(false)}>
+            <Icon src={closeIcon} />
+          </Button>
+        </Box>
       </Box>
       <Box
         display={"flex"}
