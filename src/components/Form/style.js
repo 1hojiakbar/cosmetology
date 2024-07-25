@@ -56,7 +56,7 @@ export const BackToLink = styled(NavLink)`
   color: var(--blackColor);
   margin-top: 14px;
   font-family: var(--mont);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   text-align: center;
   cursor: pointer;

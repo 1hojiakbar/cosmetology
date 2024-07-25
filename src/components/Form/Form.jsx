@@ -1,28 +1,22 @@
+import BaseUrl from "./Url";
 import idGenerator from "./Id";
 import { useState } from "react";
-import Button from "../Button/Button";
-import { InputAdornment, TextField } from "@mui/material";
+import { Button, InputAdornment, TextField } from "@mui/material";
 import { BackToLink, Container, FormWrapper, InputWrapper } from "./style";
-import { NavLink } from "react-router-dom";
 
 const Form = () => {
-  const [disable, setDisable] = useState(false);
-  const [inputValues, setInputValues] = useState({
+  const [inputs, setInputs] = useState({
     name: "",
     phoneNumber: "",
   });
+  const [errors, setErrors] = useState({});
+  const [disable, setDisable] = useState(false);
 
   const idGen = idGenerator();
 
-  const makeDisabled = () => {
-    if (inputValues.name.length > 0 && inputValues.phoneNumber.length > 0) {
-      setDisable(true);
-    }
-  };
-
   const handleChange = ({ target }) => {
     const { name, value } = target;
-    setInputValues((prevValues) => ({
+    setInputs((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
@@ -30,38 +24,41 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setDisable(true);
 
+    // Posting data to the google.sheets
     try {
-      const response = await fetch(
-        "https://sheet.best/api/sheets/e499384a-e045-4e80-b780-1abf0a4763d6/tabs/Data",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            id: idGen.next().value,
-            name: inputValues.name,
-            phoneNumber: inputValues.phoneNumber,
-          }),
-        }
-      );
+      const response = await fetch(BaseUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: idGen.next().value,
+          name: inputs.name,
+          phoneNumber: inputs.phoneNumber,
+        }),
+      });
 
+      // If the resonse isn't ok that's "new Error" gone to "catch" section
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
 
       const data = await response.json();
       if (data) {
-        makeDisabled();
+        setDisable(false);
       }
 
-      setInputValues({
+      // clear input values
+      setInputs({
         name: "",
         phoneNumber: "",
       });
+
+      // show error in console
     } catch (error) {
-      console.error("Ma'lumotni yuborishda xato yuz berdi:", error);
+      console.error("There was an error sending data:", error);
     }
   };
 
@@ -78,17 +75,20 @@ const Form = () => {
             name="name"
             autoComplete="off"
             placeholder="Ismingizni kiriting"
-            value={inputValues.name}
+            value={inputs.name}
             onChange={handleChange}
+            error={errors.name}
+            helperText={errors.name}
           />
 
           <TextField
             label="Telefon raqamingiz"
-            placeholder="99 999 99 99"
+            placeholder="99 999-99-99"
             autoComplete="off"
             name="phoneNumber"
-            value={inputValues.phoneNumber}
+            value={inputs.phoneNumber}
             onChange={handleChange}
+            helperText={errors.phoneNumber}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">+998</InputAdornment>
@@ -97,11 +97,11 @@ const Form = () => {
           />
         </InputWrapper>
         <Button
+          variant="contained"
+          disabled={disable}
           onClick={handleSubmit}
-          disable={disable}
-          h="60px"
-          type="secondary"
           size="medium"
+          sx={{ bgcolor: "#0c00ff", height: "60px" }}
         >
           Yuborish
         </Button>

@@ -8,11 +8,6 @@ const getType = ({ type }) => {
         color: "var(----blackColor)",
         border: "3px solid var(--primaryBgButtonColor)",
       };
-    case "secondary":
-      return {
-        background: "var(--secondaryBgButtonColor)",
-        color: "var(--lightColor)",
-      };
   }
 };
 
